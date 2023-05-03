@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="~/NavTitle.png" />
+    <title>@ViewData["Title"] SL Safe</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Test.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/Images/NavTitle.png" width="30" height="30" class="d-inline-block" /><sub class="text-info">SL Safe</sub></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Emergencycontact" asp-action="Index">EmergencyContact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Complaine" asp-action="Index">Complaine</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="container-fluid d-grid gap-2 d-md-flex justify-content-md-end">
+                    <button class="btn btn-transparent me-md-2 dropdown-toggle" type="button">English (United States)</button>
+                    <a asp-area="" asp-controller="SignIn" asp-action="Index"><button class="btn btn-success me-md-2 btn_color" type="button">Sign In</button></a>
+                    <a asp-area="" asp-controller="SignUp" asp-action="Index"><button class="btn btn-success btn_color" type="button">Sign Up</button></a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container-fluid">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            PROTECT & EMPOWER Nations
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,44 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.TextColor {
+    color: #008083;
+}
+
+.btn_color {
+    background-color: #008083;
+    border-color: #008083;
+}
+
+.btn_color:hover {
+        background-color: #005a5c;
+        border-color: #005a5c;
+}
+
+.link {
+    background-color: #FFFFFF;
+}
+
+    .link:hover {
+        background-color: #e7ebe8;
+    }
+
+.text {
+    color: #000000;
+}
