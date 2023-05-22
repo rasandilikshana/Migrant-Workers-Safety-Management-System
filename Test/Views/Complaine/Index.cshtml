@@ -2,7 +2,7 @@
 <head>
 <style>
     body {
-        background-color: #60C8FD
+        background-color: #60C8FD;
     }
 
     footer {
@@ -57,7 +57,7 @@
                     <div class="form-group">
                             <div class="row">
                                 <div class="col-sm">
-                                    <select id="country" name="country" class="form-control" aria-label="Default select example" required>
+                                    <select id="country" name="country" class="form-control mb-2" aria-label="Default select example" required>
                                         <option selecte>Country</option>
                                         <option value="Afghanistan">Afghanistan</option>
                                         <option value="Åland Islands">Åland Islands</option>
@@ -310,52 +310,25 @@
                                 </div>
                             </div>
                     </div>
-                    <br />
+                    
                     <div class="form-group">
-                        <input type="text" class="form-control" name="message" placeholder="Message" required />
+                        <input type="text" class="form-control mt-4" name="message" placeholder="Message" required />
                     </div>
-                    <br/>
-                    <input type="text" id="latitude" name="latitude" class="form-control" placeholder="Latitude" />
-                    <br />
-                    <input type="text" id="longitude" name="longitude" class="form-control" placeholder="Longitude" />
-                    <br />
+                   
+                    <input type="text" id="latitude" name="latitude" class="form-control invisible" placeholder="Latitude" />
+                 
+                        <input type="text" id="longitude" name="longitude" class="form-control invisible" placeholder="Longitude" />
+                    
                     <button type="submit" class="btn btn-primary btn_color container-fluid">Save Record</button>
                 </div>
             </form>
         </div>
         <div class="col-sm">
             <img class="container-fluid opacity-75" src="~/images/Call_Center.png" alt="Emergency" />
-
         </div>
         </div>
 </div>
 <br />
-
-<table>
-    <thead>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Phone Number</th>
-        <th>Country</th>
-        <th>Message</th>
-        <th>Latitude</th>
-        <th>Longitude</th>
-    </thead>
-    <tbody>
-            @foreach (var item in ViewBag.complaine)
-            {
-                <tr>
-                    <td>@item.id</td>
-                    <td>@item.name</td>
-                    <td>@item.phone</td>
-                    <td>@item.country</td>
-                    <td>@item.message</td>
-                    <td>@item.latitude</td>
-                    <td>@item.longitude</td>
-                </tr>
-            }
-        </tbody>
-</table>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 @if (TempData["message"] != null)

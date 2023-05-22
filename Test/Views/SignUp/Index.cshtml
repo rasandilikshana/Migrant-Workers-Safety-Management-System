@@ -86,7 +86,7 @@
                         </div>
                         <br />
                         <div class="form-group">
-                            <input type="text" class="form-control" name="users_agency_id" placeholder="Agency" required />
+                            <input type="text" class="form-control" name="users_agency" placeholder="Agency" required />
                         </div>
                         <br />
                         <div class="form-group">
@@ -364,66 +364,6 @@
             </div>
         </div>
     </div>
-
-
-    <table class="table table-striped table-hover table table-responsive">
-        <thead>
-            <tr>
-
-                <th>ID</th>
-                <th>Name</th>
-                <th>Address</th>
-                <th>Gender</th>
-                <th>Email</th>
-                <th>Contact Number</th>
-                <th>National ID</th>
-                <th>Passport Number</th>
-                <th>User Type</th>
-                <th>Agency</th>
-                <th>Password</th>
-                <th>Country</th>
-                <th>Latitude</th>
-                <th>Longitude</th>
-                <th></th>
-            </tr>
-        </thead>
-
-        <tbody>
-            @foreach (var item in ViewBag.Users)
-            {
-                <tr>
-
-                    <td>@item.user_id</td>
-                    <td>@item.users_name</td>
-                    <td>@item.users_address</td>
-                    <td>@item.users_gender</td>
-                    <td>@item.users_email</td>
-                    <td>@item.users_contact_number</td>
-                    <td>@item.users_national_id_number</td>
-                    <td>@item.users_passport_number</td>
-                    <td>@item.users_type</td>
-                    <td>@item.users_agency_id</td>
-                    <td>@item.users_password_hash</td>
-                    <td>@item.country</td>
-                    <td>@item.users_latitude</td>
-                    <td>@item.users_longitude</td>
-                    <td class="d-grid gap-2 d-md-grid">
-                      @*  <a href="#" data-toggle="modal" data-target="#EditRecord" class="edit" data-id="@item.id">
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#EditRecord">
-                                Edit
-                            </button>
-                        </a>*@
-                        @*<a href="#" data-toggle="modal" data-target="#DeleteRecord" class="delete" data-id="@item.id">
-                            <button class="btn btn-outline-danger" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#DeleteRecord">
-                                Delete
-                            </button>
-                        </a>*@
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-
 </body>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 @if (TempData["message"] != null)

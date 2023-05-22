@@ -1,0 +1,132 @@
+﻿@{
+    Layout = "Office_User_Dashboard_Layout";
+}
+<html>
+<head>
+    <style>
+        body {
+            background-image: url('images/graphic side.svg');
+            background-repeat: no-repeat;
+            background-size: 100% auto;
+        }
+
+        .my-card {
+            position: absolute;
+            left: 40%;
+            top: -20px;
+            border-radius: 50%;
+        }
+
+        .card {
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+            .card:hover {
+                box-shadow: 5px 6px 6px 2px #e9ecef;
+                transform: scale(1.1);
+            }
+    </style>
+</head>
+<body>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <div class="row pt-2 ">
+        <div class="row mx-auto w-100">
+            <div class="col-md-3 ">
+                <a asp-area="" asp-controller="OfficeUDuser" asp-action="Index" class="text-decoration-none text-black">
+                    <div class="card shadow border-0 mx-sm-1 p-3">
+                        <div class="text-center mt-2"><h4>Users</h4></div>
+                        <div class="text-center mt-2"><h1>50K</h1></div>
+                    </div>
+                </a>
+            </div> 
+            <div class="col-md-3">
+                <a asp-area="" asp-controller="OfficeUDcomplains" asp-action="Index" class="text-decoration-none text-black">
+                    <div class="card shadow border-0 mx-sm-1 p-3">
+                        <div class=" text-center mt-2"><h4>Complains</h4></div>
+                        <div class="text-center mt-2"><h1>20</h1></div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a asp-area="" asp-controller="OfficeUDcalls" asp-action="Index" class="text-decoration-none text-black">
+                    <div class="card shadow border-0 mx-sm-1 p-3">
+                        <div class="text-center mt-2"><h4>Calls</h4></div>
+                        <div class="text-center mt-2"><h1>100</h1></div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a asp-area="" asp-controller="OfficeUDmessages" asp-action="Index" class="text-decoration-none text-black">
+                    <div class="card shadow border-0 mx-sm-1 p-3">
+                        <div class=" text-center mt-2"><h4>Messages</h4></div>
+                        <div class=" text-center mt-2"><h1>500</h1></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <br />
+    <h5 class="text-center">Contacted Users</h5>
+    <hr />
+    <div class="row container-fluid justify-content-center text-center">
+        <div class="col table-responsive">
+            <table class="table  table-hover mx-auto w-auto">
+                <thead>
+                    <tr>
+                        <th scope="col">User Name</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Passport Number</th>
+                        <th scope="col">Phone Number</th>
+                        <th colspan="2" scope="col">Last Located Place</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">Upali Karunarathne</th>
+                        <td>55 Maliban Street</td>
+                        <td>upali@gmail.com</td>
+                        <td>N12393496</td>
+                        <td>+94 72 785 4986</td>
+                        <td>23.129527</td>
+                        <td>53.841419</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">unknown</th>
+                        <td>517, Avissawella</td>
+                        <td>name@gmail.com</td>
+                        <td>-</td>
+                        <td>+94 75 453 4984</td>
+                        <td>39.380910</td>
+                        <td>-101.07859</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Aruna Kumara</th>
+                        <td>11 Jawatta Road, 05</td>
+                        <td>aruna@gmail.com</td>
+                        <td>N67859836</td>
+                        <td>+94 71 558 7852</td>
+                        <td>24.501915</td>
+                        <td>46.739932</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Sadun amarakirthi</th>
+                        <td>97B, AMBATALE RD</td>
+                        <td>sadun@gmail.com</td>
+                        <td>N48579378</td>
+                        <td>+94 70 805 9864</td>
+                        <td>31.615374</td>
+                        <td>36.003717</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

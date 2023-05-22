@@ -33,7 +33,7 @@ namespace Test.Controllers
                     users_national_id_number = dr.GetString(6),
                     users_passport_number = dr.GetString(7),
                     users_type = dr.GetString(8),
-                    users_agency_id= dr.GetInt32(9),
+                    users_agency = dr.GetString(9),
                     users_password_hash= dr.GetString(10),
                     country=dr.GetString(11),
                     users_latitude=dr.GetString(12),
@@ -47,13 +47,13 @@ namespace Test.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddNewRecord(string users_name,string users_address, string users_gender,string users_email,string users_contact_number,string users_national_id_number,string users_passport_number,string users_type,int users_agency_id,string users_password_hash,string country,string users_latitude,string users_longitude)
+        public IActionResult AddNewRecord(string users_name,string users_address, string users_gender,string users_email,string users_contact_number,string users_national_id_number,string users_passport_number,string users_type,string users_agency, string users_password_hash,string country,string users_latitude,string users_longitude)
         {
             try
             {
                 con.Open();
                 com.Connection = con;
-                com.CommandText = "Insert into users values('" + users_name + "','" + users_address + "','" + users_gender + "','" + users_email + "','" + users_contact_number + "','" + users_national_id_number + "','" + users_passport_number + "','" + users_type + "','" + users_agency_id + "','" + users_password_hash + "','" + country + "','" + users_latitude + "','" + users_longitude + "')";
+                com.CommandText = "Insert into users values('" + users_name + "','" + users_address + "','" + users_gender + "','" + users_email + "','" + users_contact_number + "','" + users_national_id_number + "','" + users_passport_number + "','" + users_type + "','" + users_agency + "','" + users_password_hash + "','" + country + "','" + users_latitude + "','" + users_longitude + "')";
                 com.ExecuteNonQuery();
                 con.Close();
 

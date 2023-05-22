@@ -1,0 +1,57 @@
+﻿@{
+
+}
+<html>
+<head>
+    <style>
+        header {
+            visibility: collapse;
+        }
+
+        footer {
+            visibility: collapse;
+        }
+
+        body {
+            background-image: url('images/officeuserbacground.png');
+        }
+
+        .card {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+            .card:hover {
+                background-color: rgba(0, 185, 222, 0.4);
+            }
+    </style>
+</head>
+<body class="container-fluid">
+    <h1 class="text-white text-center">Safety Assurance System for Sri Lankan Migrant Workers</h1>
+    <h3 class="text-white text-center ">Agency Registration</h3>
+    <div class="row row-cols-1 row-cols-md-3 g-4 mt-5 justify-content-center">
+        <div class="col h-75 ">
+            <a class="text-decoration-none" asp-area="" asp-controller="AgencyDepartmentRegistration" asp-action="Index">
+                <div class="card h-100">
+                    <img src="~/images/imigrationbuilding.png" class="card-img-top mx-auto d-block mt-4" style="width: 100px; height: 150px;" />
+                    <div class="card-body">
+                        <h5 class="card-title text-center text-white">Department Register</h5>
+
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col h-75">
+            <a class="text-decoration-none" asp-area="" asp-controller="AgencyOfficeUserRegistration" asp-action="Index">
+                <div class="card h-100">
+                    <img src="~/images/imigrationofficer.png" class="card-img-top mx-auto d-block mt-4" style="width: 100px; height: 150px;" />
+                    <div class="card-body">
+                        <h5 class="card-title text-center text-white">Office User Register</h5>
+
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>

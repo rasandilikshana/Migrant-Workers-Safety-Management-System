@@ -1,0 +1,156 @@
+﻿@{
+    Layout = "Custom_Layout";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+
+        footer {
+            visibility: collapse;
+        }
+
+        body {
+            background-color: #60C8FD;
+            background-repeat: no-repeat, repeat;
+            opacity: inherit;
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+            .switch input {
+                opacity: 0;
+                width: 0;
+                height: 0;
+            }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+            .slider:before {
+                position: absolute;
+                content: "";
+                height: 26px;
+                width: 26px;
+                left: 4px;
+                bottom: 4px;
+                background-color: white;
+                -webkit-transition: .4s;
+                transition: .4s;
+            }
+
+        input:checked + .slider {
+            background-color: #008083;
+        }
+
+        input:focus + .slider {
+            box-shadow: 0 0 1px #008083;
+        }
+
+        input:checked + .slider:before {
+            -webkit-transform: translateX(26px);
+            -ms-transform: translateX(26px);
+            transform: translateX(26px);
+        }
+
+        /* Rounded sliders */
+        .slider.round {
+            border-radius: 34px;
+        }
+
+            .slider.round:before {
+                border-radius: 50%;
+            }
+    </style>
+</head>
+<body>
+    <div class="row">
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <a asp-area="" asp-controller="UEmergencycontact" asp-action="Index">
+                <button class="btn btn-danger me-md-2 m-1" type="button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
+                    </svg>
+                    EMERGENY<br />CONTACT
+                </button>
+            </a>
+        </div>
+    </div>
+    <div>
+        <section class="vh-100">
+            <div class="container-fluid h-custom">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col-md-9 col-lg-6 col-xl-5">
+                        <img src="~/images/notification.png" class="img-fluid opacity-75" alt="Sample image" />
+                    </div>
+                    <div class="col-md">
+                        <h5 class="TextColor pb-2">Notification</h5>
+                        <div class="row">
+                            <div class="col">
+                                <h4>Allow Location Data </h4>
+                                <p>Yes, you can try us for free for 30 days. If you want, we'll provide you with a free</p>
+                            </div>
+                            <div class="col col-md-4">
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <h4>Allow Push Notification</h4>
+                                <p>Yes, you can try us for free for 30 days. If you want, we'll provide you with a free</p>
+                            </div>
+                            <div class="col col-md-4">
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <h4>Allow Mail Notification </h4>
+                                <p>Yes, you can try us for free for 30 days. If you want, we'll provide you with a free</p>
+                            </div>
+                            <div class="col col-md-4">
+                                <label class="switch">
+                                    <input type="checkbox" >
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <h4>Allow Message Notification </h4>
+                                <p>Yes, you can try us for free for 30 days. If you want, we'll provide you with a free</p>
+                            </div>
+                            <div class="col col-md-4">
+                                <label class="switch">
+                                    <input type="checkbox" >
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

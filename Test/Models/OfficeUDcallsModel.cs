@@ -1,6 +1,6 @@
 ﻿namespace Test.Models
 {
-    public class MailForwarding
+    public class OfficeUDcallsModel
     {
     }
 }

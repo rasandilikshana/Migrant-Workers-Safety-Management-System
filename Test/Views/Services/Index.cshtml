@@ -1,6 +1,124 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    Layout = "Custom_Layout";
 }
-<h1>Services</h1>
+<html>
+<head>
+    <style>
+        body {
+            background-color: #60C8FD;
+        }
+
+        footer {
+            visibility: collapse;
+        }
+
+        .btn_color {
+            background-color: #008083;
+            border-color: #008083;
+        }
+
+            .btn_color:hover {
+                background-color: #005a5c;
+                border-color: #005a5c;
+            }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm">
+                <img class="opacity-75" src="~/images/24_7.png" />
+            </div>
+            <div class="col-sm">
+                <h2 class="text-center pb-2">Services</h2>
+                <h4 class="text-center  pb-2">
+                    These are the services we are providing
+                </h4>
+            </div>
+            <div class="col-sm">
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <a asp-area="" asp-controller="UEmergencycontact" asp-action="Index">
+                        <button class="btn btn-danger me-md-2 m-1" type="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
+                            </svg>
+                            EMERGENY<br />CONTACT
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm d-flex justify-content-center">
+                <div class="card mb-3" style="width: 30rem;">
+                    <div class="row no-gutters">
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-5">
+                            <img src="~/images/S1.png" class="card-img" alt="service 1">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm d-flex justify-content-center">
+                <div class="card mb-3" style="width: 30rem;">
+                    <div class="row no-gutters">
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-5">
+                            <img src="~/images/S2.png" class="card-img" alt="service 1">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm d-flex justify-content-center">
+                <div class="card mb-3" style="width: 30rem;">
+                    <div class="row no-gutters">
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-5">
+                            <img src="~/images/S3.png" class="card-img" alt="service 1">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm d-flex justify-content-center">
+                <div class="card mb-3" style="width: 30rem;">
+                    <div class="row no-gutters">
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-5">
+                            <img src="~/images/S4.png" class="card-img" alt="service 1">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+</html>

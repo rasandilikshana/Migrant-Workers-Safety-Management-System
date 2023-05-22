@@ -1,0 +1,59 @@
+﻿@{
+
+}
+<html>
+<head>
+    <style>
+        header {
+            visibility: collapse;
+        }
+
+        footer {
+            visibility: collapse;
+        }
+
+        body {
+            background-image: url('images/officeuserbacground.png');
+        }
+        .card{
+            background-color: rgba(255, 255, 255, 0.2);
+
+        }
+
+    </style>
+</head>
+<body class="container-fluid">
+    <div>
+        <h1 class="text-white text-center ">Safety Assurance System for Sri Lankan Migrant Workers</h1>
+    </div>
+    <section class="">
+        <div class="container py-5 h-100 ">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-12 col-md-8 col-lg-6 col-xl-4">
+                    <div class="card shadow-2-strong" style="border-radius: .5rem;">
+                        <div class="card-body p-2 text-center">
+                            <img class="mb-3 mt-3" src="~/images/emblem.png" height="200" width="auto" />
+                            <div class="row form-outline mb-3 px-5">
+                                <input type="email" id="typeEmailX-2" class="form-control form-control-sm" placeholder="Email / User Name" />
+                            </div>
+                            <div class="row form-outline mb-4 px-5">
+                                <input type="password" id="typePasswordX-2" class="form-control form-control-sm" placeholder="Password" />
+                            </div>
+                            <a class="text-decoration-none" asp-area="" asp-controller="OfficeUserDashboard" asp-action="Index">
+                            <div class="row px-5 mb-2">
+                                <button type="submit" class="btn btn_color text-white  btn-block btn-sm">Sign In</button>
+                            </div>
+                            </a>
+                            <a class="text-decoration-none" asp-area="" asp-controller="OfficeUserRegister" asp-action="Index">
+                            <div class="row px-5 mb-3">
+                                <button type="submit" class="btn btn_color text-white  btn-block btn-sm">Register</button>
+                            </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

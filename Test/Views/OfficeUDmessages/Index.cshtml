@@ -1,0 +1,124 @@
+﻿@{
+    Layout = "Office_User_Dashboard_Layout";
+}
+<html>
+<head>
+    <style>
+        body {
+            background-image: url('images/graphic side.svg');
+            background-repeat: no-repeat;
+            background-size: 100% auto;
+        }
+
+        .my-card {
+            position: absolute;
+            left: 40%;
+            top: -20px;
+            border-radius: 50%;
+        }
+
+        .card {
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+            .card:hover {
+                box-shadow: 5px 6px 6px 2px #e9ecef;
+                transform: scale(1.1);
+            }
+    </style>
+</head>
+<body>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <div class="row pt-2 ">
+        <div class="row mx-auto w-100">
+            <div class="col-md-3 ">
+                <a asp-area="" asp-controller="OfficeUDuser" asp-action="Index" class="text-decoration-none text-black">
+                    <div class="card shadow border-0 mx-sm-1 p-3">
+                        <div class="text-center mt-2"><h4>Users</h4></div>
+                        <div class="text-center mt-2"><h1>50K</h1></div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a asp-area="" asp-controller="OfficeUDcomplains" asp-action="Index" class="text-decoration-none text-black">
+                    <div class="card shadow border-0 mx-sm-1 p-3">
+                        <div class=" text-center mt-2"><h4>Complains</h4></div>
+                        <div class="text-center mt-2"><h1>20</h1></div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a asp-area="" asp-controller="OfficeUDcalls" asp-action="Index" class="text-decoration-none text-black">
+                    <div class="card shadow border-0 mx-sm-1 p-3">
+                        <div class="text-center mt-2"><h4>Calls</h4></div>
+                        <div class="text-center mt-2"><h1>100</h1></div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a asp-area="" asp-controller="OfficeUDmessages" asp-action="Index" class="text-decoration-none text-black">
+                    <div class="card shadow border-0 mx-sm-1 p-3">
+                        <div class=" text-center mt-2"><h4>Messages</h4></div>
+                        <div class=" text-center mt-2"><h1>500</h1></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <br />
+    <h5 class="text-center">Contacted Messages</h5>
+    <hr />
+    <div class="row container-fluid justify-content-center text-center">
+        <div class="col table-responsive">
+            <table class="table  table-hover mx-auto w-auto">
+                <thead>
+                    <tr>
+                        <th scope="col">User Name</th>
+                        <th scope="col">Phone Number</th>
+                        <th scope="col">Message</th>
+                        <th scope="col">Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">Upali Karunarathne</th>
+                        <td>+94 76 785 8573</td>
+                        <td>Help Me</td>
+                        <td>12/03/2023</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Sadun amarakirthi</th>
+                        <td>+94 70 805 9864</td>
+                        <td>I’m in emergency situation</td>
+                        <td>01/03/2023</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">+94 72 785 4986</th>
+                        <td>+94 72 785 4986</td>
+                        <td>Please Help !</td>
+                        <td>20/02/2023</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Saman De Silva</th>
+                        <td>+94 71 785 4943</td>
+                        <td>Support Us !</td>
+                        <td>02/02/2023</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">+94 71 558 7852</th>
+                        <td>+94 71 558 7852</td>
+                        <td>Emergency</td>
+                        <td>30/02/2023</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
