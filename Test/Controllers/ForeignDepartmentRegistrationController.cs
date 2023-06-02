@@ -1,41 +1,50 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using System.Data.SqlClient;
-using System.Diagnostics;
-using System.Reflection;
 using Test.Models;
 
 namespace Test.Controllers
 {
     public class ForeignDepartmentRegistrationController : Controller
     {
-        SqlConnection con = new SqlConnection("Data Source=ITG-DTP-SHM\\SQLEXPRESS;Database=Test;Integrated Security=True");
-        SqlCommand com = new SqlCommand();
-        SqlDataReader? dr;
+        private readonly IConfiguration _configuration;
+        private readonly SqlConnection _connection;
+        private readonly SqlCommand _command;
+        private SqlDataReader _dataReader;
+
+        public ForeignDepartmentRegistrationController(IConfiguration configuration)
+        {
+            _configuration = configuration;
+            _connection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection"));
+            _command = new SqlCommand();
+        }
+
         public IActionResult Index()
         {
             List<ForeignDepartmentRegistrationModel> department_of_foreign = new List<ForeignDepartmentRegistrationModel>();
-            con.Open();
-            com.Connection = con;
-            com.CommandText = "Select * from foreign_employment_bureau";
-            dr = com.ExecuteReader();
+            _connection.Open();
+            _command.Connection = _connection;
+            _command.CommandText = "SELECT * FROM foreign_employment_bureau";
+            _dataReader = _command.ExecuteReader();
 
-            while (dr.Read())
+            while (_dataReader.Read())
             {
                 var foreign = new ForeignDepartmentRegistrationModel
                 {
-                    foreign_employment_bureau_id = dr.GetInt32(0),
-                    foreign_employment_bureau_name = dr.GetString(1),
-                    foreign_employment_bureau_address = dr.GetString(2),
-                    foreign_employment_bureau_email = dr.GetString(3),
-                    foreign_employment_bureau_whatsapp_number = dr.GetString(4),
-                    foreign_employment_bureau_contact_number = dr.GetString(5),
-                    foreign_employment_bureau_divisional_secretariats = dr.GetString(6),
-                    foreign_employment_bureau_latitude = dr.GetString(7),
-                    foreign_employment_bureau_longitude = dr.GetString(8)
+                    foreign_employment_bureau_id = _dataReader.GetInt32(0),
+                    foreign_employment_bureau_name = _dataReader.GetString(1),
+                    foreign_employment_bureau_address = _dataReader.GetString(2),
+                    foreign_employment_bureau_email = _dataReader.GetString(3),
+                    foreign_employment_bureau_whatsapp_number = _dataReader.GetString(4),
+                    foreign_employment_bureau_contact_number = _dataReader.GetString(5),
+                    foreign_employment_bureau_divisional_secretariats = _dataReader.GetString(6),
+                    foreign_employment_bureau_latitude = _dataReader.GetString(7),
+                    foreign_employment_bureau_longitude = _dataReader.GetString(8)
                 };
                 department_of_foreign.Add(foreign);
             }
             ViewBag.department_of_foreign = department_of_foreign;
+            _connection.Close();
             return View();
         }
 
@@ -44,11 +53,11 @@ namespace Test.Controllers
         {
             try
             {
-                con.Open();
-                com.Connection = con;
-                com.CommandText = "Insert into foreign_employment_bureau values('" + foreign_employment_bureau_name + "','" + foreign_employment_bureau_address + "','" + foreign_employment_bureau_email + "','" + foreign_employment_bureau_whatsapp_number + "','" + foreign_employment_bureau_contact_number + "','" + foreign_employment_bureau_divisional_secretariats + "','" + foreign_employment_bureau_latitude + "','" + foreign_employment_bureau_longitude + "')";
-                com.ExecuteNonQuery();
-                con.Close();
+                _connection.Open();
+                _command.Connection = _connection;
+                _command.CommandText = "INSERT INTO foreign_employment_bureau VALUES('" + foreign_employment_bureau_name + "','" + foreign_employment_bureau_address + "','" + foreign_employment_bureau_email + "','" + foreign_employment_bureau_whatsapp_number + "','" + foreign_employment_bureau_contact_number + "','" + foreign_employment_bureau_divisional_secretariats + "','" + foreign_employment_bureau_latitude + "','" + foreign_employment_bureau_longitude + "')";
+                _command.ExecuteNonQuery();
+                _connection.Close();
 
                 TempData["message"] = "Data Saved Successfully";
                 return RedirectToAction("Index", "ForeignDepartmentRegistration");
@@ -56,9 +65,9 @@ namespace Test.Controllers
             }
             catch (Exception ex)
             {
-                if (con.State == System.Data.ConnectionState.Open)
+                if (_connection.State == System.Data.ConnectionState.Open)
                 {
-                    con.Close();
+                    _connection.Close();
                 }
                 TempData["errormessage"] = "Data Save Failed";
                 return RedirectToAction("Index", "ForeignDepartmentRegistration");

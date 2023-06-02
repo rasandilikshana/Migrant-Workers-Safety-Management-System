@@ -1,41 +1,50 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using System.Data.SqlClient;
-using System.Diagnostics;
-using System.Reflection;
 using Test.Models;
 
 namespace Test.Controllers
 {
     public class PoliceDepartmentRegistrationController : Controller
     {
-        SqlConnection con = new SqlConnection("Data Source=ITG-DTP-SHM\\SQLEXPRESS;Database=Test;Integrated Security=True");
-        SqlCommand com = new SqlCommand();
-        SqlDataReader? dr;
+        private readonly IConfiguration _configuration;
+        private readonly SqlConnection _connection;
+        private readonly SqlCommand _command;
+        private SqlDataReader _dataReader;
+
+        public PoliceDepartmentRegistrationController(IConfiguration configuration)
+        {
+            _configuration = configuration;
+            _connection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection"));
+            _command = new SqlCommand();
+        }
+
         public IActionResult Index()
         {
             List<PoliceDepartmentRegistrationModel> department_of_police = new List<PoliceDepartmentRegistrationModel>();
-            con.Open();
-            com.Connection = con;
-            com.CommandText = "Select * from police_department";
-            dr = com.ExecuteReader();
+            _connection.Open();
+            _command.Connection = _connection;
+            _command.CommandText = "SELECT * FROM police_department";
+            _dataReader = _command.ExecuteReader();
 
-            while (dr.Read())
+            while (_dataReader.Read())
             {
                 var police = new PoliceDepartmentRegistrationModel
                 {
-                    police_id = dr.GetInt32(0),
-                    police_name = dr.GetString(1),
-                    police_address = dr.GetString(2),
-                    police_email = dr.GetString(3),
-                    police_whatsapp_number = dr.GetString(4),
-                    police_contact_number = dr.GetString(5),
-                    police_divisional_secretariats = dr.GetString(6),
-                    police_latitude = dr.GetString(7),
-                    police_longitude = dr.GetString(8)
+                    police_id = _dataReader.GetInt32(0),
+                    police_name = _dataReader.GetString(1),
+                    police_address = _dataReader.GetString(2),
+                    police_email = _dataReader.GetString(3),
+                    police_whatsapp_number = _dataReader.GetString(4),
+                    police_contact_number = _dataReader.GetString(5),
+                    police_divisional_secretariats = _dataReader.GetString(6),
+                    police_latitude = _dataReader.GetString(7),
+                    police_longitude = _dataReader.GetString(8)
                 };
                 department_of_police.Add(police);
             }
             ViewBag.department_of_police = department_of_police;
+            _connection.Close();
             return View();
         }
 
@@ -44,11 +53,11 @@ namespace Test.Controllers
         {
             try
             {
-                con.Open();
-                com.Connection = con;
-                com.CommandText = "Insert into police_department values('" + police_name + "','" + police_address + "','" + police_email + "','" + police_whatsapp_number + "','" + police_contact_number + "','" + police_divisional_secretariats + "','" + police_latitude + "','" + police_longitude + "')";
-                com.ExecuteNonQuery();
-                con.Close();
+                _connection.Open();
+                _command.Connection = _connection;
+                _command.CommandText = "INSERT INTO police_department VALUES('" + police_name + "','" + police_address + "','" + police_email + "','" + police_whatsapp_number + "','" + police_contact_number + "','" + police_divisional_secretariats + "','" + police_latitude + "','" + police_longitude + "')";
+                _command.ExecuteNonQuery();
+                _connection.Close();
 
                 TempData["message"] = "Data Saved Successfully";
                 return RedirectToAction("Index", "PoliceDepartmentRegistration");
@@ -56,9 +65,9 @@ namespace Test.Controllers
             }
             catch (Exception ex)
             {
-                if (con.State == System.Data.ConnectionState.Open)
+                if (_connection.State == System.Data.ConnectionState.Open)
                 {
-                    con.Close();
+                    _connection.Close();
                 }
                 TempData["errormessage"] = "Data Save Failed";
                 return RedirectToAction("Index", "PoliceDepartmentRegistration");

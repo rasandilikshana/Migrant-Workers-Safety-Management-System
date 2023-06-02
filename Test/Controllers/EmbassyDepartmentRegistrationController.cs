@@ -1,43 +1,52 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using System.Data.SqlClient;
-using System.Diagnostics;
-using System.Reflection;
 using Test.Models;
 
 namespace Test.Controllers
 {
     public class EmbassyDepartmentRegistrationController : Controller
     {
-        SqlConnection con = new SqlConnection("Data Source=ITG-DTP-SHM\\SQLEXPRESS;Database=Test;Integrated Security=True");
-        SqlCommand com = new SqlCommand();
-        SqlDataReader? dr;
+        private readonly IConfiguration _configuration;
+        private readonly SqlConnection _connection;
+        private readonly SqlCommand _command;
+        private SqlDataReader _dataReader;
+
+        public EmbassyDepartmentRegistrationController(IConfiguration configuration)
+        {
+            _configuration = configuration;
+            _connection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection"));
+            _command = new SqlCommand();
+        }
+
         public IActionResult Index()
         {
             List<EmbassyDepartmentRegistrationModel> department_of_embassy = new List<EmbassyDepartmentRegistrationModel>();
-            con.Open();
-            com.Connection = con;
-            com.CommandText = "Select * from embassy";
-            dr = com.ExecuteReader();
+            _connection.Open();
+            _command.Connection = _connection;
+            _command.CommandText = "SELECT * FROM embassy";
+            _dataReader = _command.ExecuteReader();
 
-            while (dr.Read())
+            while (_dataReader.Read())
             {
                 var embassy = new EmbassyDepartmentRegistrationModel
                 {
-                    embassy_id=dr.GetInt32(0),
-                    embassy_name=dr.GetString(1),
-                    embassy_address=dr.GetString(2),
-                    embassy_email=dr.GetString(3),
-                    embassy_whatsapp_number=dr.GetString(4),
-                    embassy_contact_number=dr.GetString(5),
-                    embassy_divisional_secretariats=dr.GetString(6),
-                    embassy_website=dr.GetString(7),
-                    embassy_validcountry=dr.GetString(8),
-                    embassy_latitude=dr.GetString(9),
-                    embassy_longitude=dr.GetString(10)
+                    embassy_id = _dataReader.GetInt32(0),
+                    embassy_name = _dataReader.GetString(1),
+                    embassy_address = _dataReader.GetString(2),
+                    embassy_email = _dataReader.GetString(3),
+                    embassy_whatsapp_number = _dataReader.GetString(4),
+                    embassy_contact_number = _dataReader.GetString(5),
+                    embassy_divisional_secretariats = _dataReader.GetString(6),
+                    embassy_website = _dataReader.GetString(7),
+                    embassy_validcountry = _dataReader.GetString(8),
+                    embassy_latitude = _dataReader.GetString(9),
+                    embassy_longitude = _dataReader.GetString(10)
                 };
                 department_of_embassy.Add(embassy);
             }
             ViewBag.department_of_embassy = department_of_embassy;
+            _connection.Close();
             return View();
         }
 
@@ -46,21 +55,20 @@ namespace Test.Controllers
         {
             try
             {
-                con.Open();
-                com.Connection = con;
-                com.CommandText = "Insert into embassy values('" + embassy_name + "','" + embassy_address + "','" + embassy_email + "','" + embassy_whatsapp_number + "','" + embassy_contact_number + "','" + embassy_divisional_secretariats + "','" + embassy_website + "','" + embassy_validcountry + "','" + embassy_latitude + "','" + embassy_longitude + "')";
-                com.ExecuteNonQuery();
-                con.Close();
+                _connection.Open();
+                _command.Connection = _connection;
+                _command.CommandText = "INSERT INTO embassy VALUES('" + embassy_name + "','" + embassy_address + "','" + embassy_email + "','" + embassy_whatsapp_number + "','" + embassy_contact_number + "','" + embassy_divisional_secretariats + "','" + embassy_website + "','" + embassy_validcountry + "','" + embassy_latitude + "','" + embassy_longitude + "')";
+                _command.ExecuteNonQuery();
+                _connection.Close();
 
                 TempData["message"] = "Data Saved Successfully";
                 return RedirectToAction("Index", "EmbassyDepartmentRegistration");
-
             }
             catch (Exception ex)
             {
-                if (con.State == System.Data.ConnectionState.Open)
+                if (_connection.State == System.Data.ConnectionState.Open)
                 {
-                    con.Close();
+                    _connection.Close();
                 }
                 TempData["errormessage"] = "Data Save Failed";
                 return RedirectToAction("Index", "EmbassyDepartmentRegistration");

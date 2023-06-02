@@ -41,7 +41,7 @@
                 <a asp-area="" asp-controller="OfficeUDuser" asp-action="Index" class="text-decoration-none text-black">
                     <div class="card shadow border-0 mx-sm-1 p-3">
                         <div class="text-center mt-2"><h4>Users</h4></div>
-                        <div class="text-center mt-2"><h1>50K</h1></div>
+                        <div class="text-center mt-2"><h1>@ViewBag.CountOfUsers</h1></div>
                     </div>
                 </a>
             </div>
@@ -49,7 +49,7 @@
                 <a asp-area="" asp-controller="OfficeUDcomplains" asp-action="Index" class="text-decoration-none text-black">
                     <div class="card shadow border-0 mx-sm-1 p-3">
                         <div class=" text-center mt-2"><h4>Complains</h4></div>
-                        <div class="text-center mt-2"><h1>20</h1></div>
+                        <div class="text-center mt-2"><h1>@ViewBag.countOfComplaines</h1></div>
                     </div>
                 </a>
             </div>
@@ -57,7 +57,7 @@
                 <a asp-area="" asp-controller="OfficeUDcalls" asp-action="Index" class="text-decoration-none text-black">
                     <div class="card shadow border-0 mx-sm-1 p-3">
                         <div class="text-center mt-2"><h4>Calls</h4></div>
-                        <div class="text-center mt-2"><h1>100</h1></div>
+                        <div class="text-center mt-2"><h1>10</h1></div>
                     </div>
                 </a>
             </div>
@@ -65,7 +65,7 @@
                 <a asp-area="" asp-controller="OfficeUDmessages" asp-action="Index" class="text-decoration-none text-black">
                     <div class="card shadow border-0 mx-sm-1 p-3">
                         <div class=" text-center mt-2"><h4>Messages</h4></div>
-                        <div class=" text-center mt-2"><h1>500</h1></div>
+                        <div class=" text-center mt-2"><h1>5</h1></div>
                     </div>
                 </a>
             </div>
@@ -87,38 +87,18 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">Upali Karunarathne</th>
-                        <td>+94 72 785 4986</td>
-                        <td>Dubai</td>
-                        <td>contact us immediately.</td>
-                        <td>23.129527</td>
-                        <td>53.841419</td>
-                    </tr> 
-                    <tr>
-                        <th scope="row">Sadun amarakirthi</th>
-                        <td>+94 70 805 9864</td>
-                        <td>Jordan</td>
-                        <td>Help Me</td>
-                        <td>31.615374</td>
-                        <td>36.003717</td>
-                    </tr> 
-                    <tr>
-                        <th scope="row">+94 71 558 7852</th>
-                        <td>+94 71 558 7852</td>
-                        <td>Saudi Arabia</td>
-                        <td>Support Us !</td>
-                        <td>24.501915</td>
-                        <td>46.739932</td>
-                    </tr> 
-                    <tr>
-                        <th scope="row">Sandun Wijekoon</th>
-                        <td>+94 76 785 8573</td>
-                        <td>Japan</td>
-                        <td>Contact Me</td>
-                        <td>35.667791</td>
-                        <td>136.66589</td>
-                    </tr>
+                    @foreach (var comp in ViewBag.complaine)
+                    {
+                        <tr>
+                            <th scope="row">@comp.name</th>
+                            <td>@comp.phone</td>
+                            <td>@comp.country</td>
+                            <td>@comp.message</td>
+                            <td>@comp.latitude</td>
+                            <td>@comp.longitude</td>
+                        </tr>
+                    }
+                    
                 </tbody>
             </table>
         </div>

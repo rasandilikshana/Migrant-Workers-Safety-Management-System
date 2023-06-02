@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using System.Data.SqlClient;
 using Test.Models;
 
@@ -6,31 +7,41 @@ namespace Test.Controllers
 {
     public class UComplaineController : Controller
     {
-        SqlConnection con = new SqlConnection("Data Source=ITG-DTP-SHM\\SQLEXPRESS;Database=Test;Integrated Security=True");
-        SqlCommand com = new SqlCommand();
-        SqlDataReader? dr;
+        private readonly IConfiguration _configuration;
+        private readonly SqlConnection _connection;
+        private readonly SqlCommand _command;
+        private SqlDataReader _dataReader;
+
+        public UComplaineController(IConfiguration configuration)
+        {
+            _configuration = configuration;
+            _connection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection"));
+            _command = new SqlCommand();
+        }
+
         public IActionResult Index()
         {
             List<ComplaineModel> complaine = new List<ComplaineModel>();
-            con.Open();
-            com.Connection = con;
-            com.CommandText = "Select * from complains";
-            dr = com.ExecuteReader();
+            _connection.Open();
+            _command.Connection = _connection;
+            _command.CommandText = "SELECT * FROM complains";
+            _dataReader = _command.ExecuteReader();
 
-            while (dr.Read())
+            while (_dataReader.Read())
             {
                 var comp = new ComplaineModel
                 {
-                    id = dr.GetInt32(0),
-                    name = dr.GetString(1),
-                    phone = dr.GetString(2),
-                    country = dr.GetString(3),
-                    message = dr.GetString(4),
-                    latitude = dr.GetString(5),
-                    longitude = dr.GetString(6)
+                    id = _dataReader.GetInt32(0),
+                    name = _dataReader.GetString(1),
+                    phone = _dataReader.GetString(2),
+                    country = _dataReader.GetString(3),
+                    message = _dataReader.GetString(4),
+                    latitude = _dataReader.GetString(5),
+                    longitude = _dataReader.GetString(6)
                 };
                 complaine.Add(comp);
             }
+
             ViewBag.complaine = complaine;
             return View();
         }
@@ -40,20 +51,20 @@ namespace Test.Controllers
         {
             try
             {
-                con.Open();
-                com.Connection = con;
-                com.CommandText = "Insert into complains values('" + name + "','" + phone + "','" + country + "','" + message + "','" + latitude + "','" + longitude + "')";
-                com.ExecuteNonQuery();
-                con.Close();
+                _connection.Open();
+                _command.Connection = _connection;
+                _command.CommandText = "INSERT INTO complains VALUES('" + name + "','" + phone + "','" + country + "','" + message + "','" + latitude + "','" + longitude + "')";
+                _command.ExecuteNonQuery();
+                _connection.Close();
 
                 TempData["message"] = "Data Saved Successfully";
                 return RedirectToAction("Index", "UComplaine");
             }
             catch (Exception ex)
             {
-                if (con.State == System.Data.ConnectionState.Open)
+                if (_connection.State == System.Data.ConnectionState.Open)
                 {
-                    con.Close();
+                    _connection.Close();
                 }
                 TempData["errormessage"] = "Data Save Failed";
                 return RedirectToAction("Index", "UComplaine");

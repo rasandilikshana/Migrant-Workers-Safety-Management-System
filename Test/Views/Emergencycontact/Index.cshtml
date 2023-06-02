@@ -9,84 +9,79 @@
 </style>
 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
     <a asp-area="" asp-controller="Emergencycontact" asp-action="Index">
-    <button class="btn btn-danger me-md-2 m-1" type="button">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
-        </svg>
-        EMERGENY<br />CONTACT
-    </button>
+        <button class="btn btn-danger me-md-2 m-1" type="button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
+            </svg>
+            EMERGENY<br />CONTACT
+        </button>
     </a>
 </div>
 <div class="container-fluid">
     <div class="row">
-        <div class="col">
-            <h2 class="text-center text-danger pb-2">EMERGENY CONTACT</h2>
-            <br />
-            <h4 class="text-center  pb-2">
-                EMERGENCY CONTACT FOR SRI LANKAN SAFE AUTHORITY
-            </h4>
+        <div class="col-sm text-center">
+            <h2 class="text-danger pb-2 pt-1">EMERGENCY CONTACT</h2>
+            <h4 class="pb-2">EMERGENCY CONTACT FOR SRI LANKAN SAFE AUTHORITY</h4>
         </div>
     </div>
-    <br />
     <div class="row">
         <div class="col-sm">
             <div class="row ">
                 <div class="col-sm container-fluid mt-2">
                     <a class="text-decoration-none text-black" asp-area="" asp-controller="VoiceCall" asp-action="Index">
-                        <div class="card container-fluid rounded shadow-sm  link" style="width: 18rem">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Voice Call</h5>
-                            <img src="~/images/Telephone.png" alt="Voice Call" height="50" width="auto" class="mb-5 mt-3" />
-                            <br />
-                            <a class="btn btn-outline-info" asp-area="" asp-controller="VoiceCall" asp-action="Index">Call Us</a>
-                        </div>
+                        <div class="card container-fluid  shadow-sm  link" style="width: 18rem; border-radius: 25px;">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Voice Call</h5>
+                                <img src="~/images/Telephone.png" alt="Voice Call" height="50" width="auto" class="mb-5 mt-3" />
+                                <br />
+                                <a class="btn btn-outline-info" asp-area="" asp-controller="VoiceCall" asp-action="Index">Call Us</a>
+                            </div>
                         </div>
                     </a>
                 </div>
                 <div class="col-sm container-fluid mt-2">
                     <a class="text-decoration-none text-black" asp-area="" asp-controller="TextMessage" asp-action="Index">
-                        <div class="card container-fluid rounded shadow-sm link" style="width: 18rem;">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Text Message </h5>
-                            <img src="~/images/Message.png" alt="Text Message" height="50" width="auto" class="mb-5 mt-3" />
-                            <br />
-                            <a class="btn btn-outline-info" asp-area="" asp-controller="TextMessage" asp-action="Index">Text Us</a>
+                        <div class="card container-fluid shadow-sm link" style="width: 18rem;border-radius: 25px;">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Text Message </h5>
+                                <img src="~/images/Message.png" alt="Text Message" height="50" width="auto" class="mb-5 mt-3" />
+                                <br />
+                                <a class="btn btn-outline-info" asp-area="" asp-controller="TextMessage" asp-action="Index">Text Us</a>
+                            </div>
                         </div>
-                    </div>
                     </a>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm container-fluid mt-2">
                     <a class="text-decoration-none text-black" asp-area="" asp-controller="MailForwarding" asp-action="Index">
-                    <div class="card container-fluid rounded shadow-sm link" style="width: 18rem;">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Mail Forwarding</h5>
-                            <img src="~/images/Mail.png" alt="Mail" height="50" width="auto" class="mb-5 mt-3" />
-                            <br />
-                            <a class="btn btn-outline-info" asp-area="" asp-controller="MailForwarding" asp-action="Index">Mail Us</a>
+                        <div class="card container-fluid  shadow-sm link" style="width: 18rem;border-radius: 25px;">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Mail Forwarding</h5>
+                                <img src="~/images/Mail.png" alt="Mail" height="50" width="auto" class="mb-5 mt-3" />
+                                <br />
+                                <a class="btn btn-outline-info" asp-area="" asp-controller="MailForwarding" asp-action="Index">Mail Us</a>
+                            </div>
                         </div>
-                    </div>
                     </a>
                 </div>
                 <div class="col-sm container-fluid mt-2">
                     <a class="text-decoration-none text-black" asp-area="" asp-controller="WhatsappMessage" asp-action="Index">
-                    <div class="card container-fluid rounded shadow-sm link" style="width: 18rem;">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">WhatsApp Message </h5>
-                            <img src="~/images/Whatsapp.png" alt="Whatsapp" height="50" width="auto" class="mb-5 mt-3" />
-                            <br />
-                            <a class="btn btn-outline-info" asp-area="" asp-controller="WhatsappMessage" asp-action="Index">Call Us</a>
+                        <div class="card container-fluid  shadow-sm link" style="width: 18rem;border-radius: 25px;">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">WhatsApp Message </h5>
+                                <img src="~/images/Whatsapp.png" alt="Whatsapp" height="50" width="auto" class="mb-5 mt-3" />
+                                <br />
+                                <a class="btn btn-outline-info" asp-area="" asp-controller="WhatsappMessage" asp-action="Index">Call Us</a>
+                            </div>
                         </div>
-                    </div>
                     </a>
                 </div>
             </div>
         </div>
         <div class="col-sm">
-            <img class="container-fluid opacity-75" src="~/images/Emergency call-bro.png" alt="Emergency" />
+            <img class="img-fluid opacity-75" src="~/images/Emergency call-bro.png" alt="Emergency" />
         </div>
     </div>
 </div>
 <br />
-

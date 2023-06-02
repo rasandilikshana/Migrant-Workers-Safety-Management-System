@@ -2,13 +2,13 @@
     Layout = "Office_User_Dashboard_Layout";
 }
 <html>
-    <head>
-        <style>
-            body{
+<head>
+    <style>
+        body {
             background-image: url('images/graphic side.svg');
-            background-repeat:no-repeat;
+            background-repeat: no-repeat;
             background-size: 100% auto;
-            }
+        }
 
         .my-card {
             position: absolute;
@@ -16,18 +16,19 @@
             top: -20px;
             border-radius: 50%;
         }
-        .card{
+
+        .card {
             transition: all 0.2s ease;
             cursor: pointer;
         }
-        .card:hover{
+
+            .card:hover {
                 box-shadow: 5px 6px 6px 2px #e9ecef;
                 transform: scale(1.1);
-        }
-        
-        </style>
-    </head>
-    <body>
+            }
+    </style>
+</head>
+<body>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -38,34 +39,34 @@
         <div class="row mx-auto w-100">
             <div class="col-md-3 ">
                 <a asp-area="" asp-controller="OfficeUDuser" asp-action="Index" class="text-decoration-none text-black">
-                <div class="card shadow border-0 mx-sm-1 p-3">
-                    <div class="text-center mt-2"><h4>Users</h4></div>
-                    <div class="text-center mt-2"><h1>50K</h1></div>
-                </div>
+                    <div class="card shadow border-0 mx-sm-1 p-3">
+                        <div class="text-center mt-2"><h4>Users</h4></div>
+                        <div class="text-center mt-2"><h1>@ViewBag.CountOfUsers</h1></div>
+                    </div>
                 </a>
             </div>
             <div class="col-md-3">
                 <a asp-area="" asp-controller="OfficeUDcomplains" asp-action="Index" class="text-decoration-none text-black">
-                <div class="card shadow border-0 mx-sm-1 p-3">
-                    <div class=" text-center mt-2"><h4>Complains</h4></div>
-                    <div class="text-center mt-2"><h1>20</h1></div>
-                </div>
+                    <div class="card shadow border-0 mx-sm-1 p-3">
+                        <div class=" text-center mt-2"><h4>Complains</h4></div>
+                        <div class="text-center mt-2"><h1>@ViewBag.countOfComplaines</h1></div>
+                    </div>
                 </a>
             </div>
             <div class="col-md-3">
                 <a asp-area="" asp-controller="OfficeUDcalls" asp-action="Index" class="text-decoration-none text-black">
-                <div class="card shadow border-0 mx-sm-1 p-3">
-                    <div class="text-center mt-2"><h4>Calls</h4></div>
-                    <div class="text-center mt-2"><h1>100</h1></div>
-                </div>
+                    <div class="card shadow border-0 mx-sm-1 p-3">
+                        <div class="text-center mt-2"><h4>Calls</h4></div>
+                        <div class="text-center mt-2"><h1>10</h1></div>
+                    </div>
                 </a>
             </div>
             <div class="col-md-3">
                 <a asp-area="" asp-controller="OfficeUDmessages" asp-action="Index" class="text-decoration-none text-black">
-                <div class="card shadow border-0 mx-sm-1 p-3">
-                    <div class=" text-center mt-2"><h4>Messages</h4></div>
-                    <div class=" text-center mt-2"><h1>500</h1></div>
-                </div>
+                    <div class="card shadow border-0 mx-sm-1 p-3">
+                        <div class=" text-center mt-2"><h4>Messages</h4></div>
+                        <div class=" text-center mt-2"><h1>5</h1></div>
+                    </div>
                 </a>
             </div>
         </div>
@@ -73,7 +74,7 @@
     <br />
     <div class="row container-fluid mx-auto w-auto justify-content-center text-center">
         <div class="col">
-               <div class="" style="width: 100%"><iframe width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=720&amp;height=350&amp;hl=en&amp;q=1%20Grafton%20Street,%20Dublin,%20Ireland+(My%20Business%20Name)&amp;t=&amp;z=6&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.maps.ie/distance-area-calculator.html">measure acres/hectares on map</a></iframe></div>
+            <div class="" style="width: 100%"><iframe width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=720&amp;height=350&amp;hl=en&amp;q=1%20Grafton%20Street,%20Dublin,%20Ireland+(My%20Business%20Name)&amp;t=&amp;z=6&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.maps.ie/distance-area-calculator.html">measure acres/hectares on map</a></iframe></div>
         </div>
     </div>
     <br />
@@ -93,33 +94,32 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">Upali Karunarathne</th>
-                        <td>+94 78 458 6898 </td>
-                        <td>call</td>
-                        <td>Help me</td>
-                        <td>23/03/30</td>
-                        <td><button class="btn btn-danger">No Response</button></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">unknown</th>
-                        <td>+94 75 357 4973</td>
-                        <td>complains</td>
-                        <td>Support me</td>
-                        <td>23/03/10</td>
-                        <td><button class="btn btn-success">Responded</buttonc></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Sadun amarakirthi</th>
-                        <td>+94 71 848 8938</td>
-                        <td>message</td>
-                        <td>Emergency situation</td>
-                        <td>23/02/01</td>
-                        <td><button class="btn btn-danger">No Response</button></td>
-                    </tr>
+                    @foreach (var comp in ViewBag.complaine)
+                    {
+                        <tr>
+                            <th scope="row">@comp.name</th>
+                            <td>@comp.phone</td>
+                            <td>@comp.country</td>
+                            <td>@comp.message</td>
+                            <td>@comp.latitude</td>
+                            <td>@comp.longitude</td>
+                        </tr>
+                    }
+
+                    @foreach (var usr in ViewBag.Users)
+                    {
+                        <tr>
+                            <th scope="row">@usr.users_name</th>
+                            <td>@usr.users_contact_number</td>
+                            <td>@usr.users_address</td>
+                            <td>@usr.users_passport_number</td>
+                            <td>@usr.users_latitude</td>
+                            <td>@usr.users_longitude</td>
+                        </tr>
+                    }
                 </tbody>
             </table>
         </div>
     </div>
-    </body>
+</body>
 </html>
