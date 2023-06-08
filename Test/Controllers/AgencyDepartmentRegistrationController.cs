@@ -66,7 +66,7 @@ namespace Test.Controllers
                 return RedirectToAction("Index", "AgencyDepartmentRegistration");
 
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 if (_connection.State == System.Data.ConnectionState.Open)
                 {

@@ -1,3 +1,18 @@
+using Microsoft.Extensions.Logging;
+static IHostBuilder CreateHostBuilder(string[] args) =>
+    Host.CreateDefaultBuilder(args)
+        .ConfigureWebHostDefaults(webBuilder =>
+        {
+            webBuilder.UseStartup<Startup>();
+            webBuilder.ConfigureLogging((hostingContext, logging) =>
+            {
+                // Configure logging options here
+                logging.ClearProviders();
+                logging.AddConsole();
+                logging.AddDebug();
+            });
+        });
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -13,6 +28,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+app.UseDeveloperExceptionPage();
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
