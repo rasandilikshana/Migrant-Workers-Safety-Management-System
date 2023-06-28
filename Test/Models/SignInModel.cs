@@ -20,4 +20,5 @@ namespace Test.Models
         public string? users_latitude { get; set; }
         public string? users_longitude { get; set; }
     }
+   
 }

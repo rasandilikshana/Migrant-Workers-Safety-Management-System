@@ -14,13 +14,20 @@
         body {
             background-color: #60C8FD
         }
+        @Html.Raw("@")media (max-width: 767px) {
+            .col img {
+                display: none;
+            }
+        } 
     </style>
 </head>
  <div class="d-flex justify-content-between align-items-center">
                                 <!-- Checkbox -->
                                 <div class="d-flex">
-                                    <img src="~/navtitle.png" />
-                                    <div class="ms-2 mt-3 TextColor">SL SAFE</div>
+                                    <a asp-area="" asp-controller="Home" asp-action="Index">
+                                        <img src="~/navtitle.png" />
+                                    </a>
+                                        <div class="ms-2 mt-3 TextColor">SL SAFE</div> 
                                 </div>
                                 <div class="d-flex">
                                     <h6 class="text-black-50 me-2 mt-2">Already You Have Account ? </h6>
@@ -354,9 +361,7 @@
                         <input type="text" id="latitude" name="users_latitude" class="form-control invisible" placeholder="Latitude" />
                       
                         <input type="text" id="longitude" name="users_longitude" class="form-control invisible" placeholder="Longitude" />
-                      
-                        
-                        
+
                     </div>
                 </form>
             </div>
